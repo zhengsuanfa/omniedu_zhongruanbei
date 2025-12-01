@@ -34,6 +34,7 @@ EXPOSE 8000
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD python -c "import requests; requests.get('http://localhost:8000/api/v1/tickets/?limit=1')"
 
-# 启动命令
+# 设置Python路径并启动
+ENV PYTHONPATH=/app
 CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]
 
