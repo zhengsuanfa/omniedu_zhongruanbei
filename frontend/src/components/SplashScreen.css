@@ -1,0 +1,454 @@
+/* 启动画面主容器 */
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  background: #020817;
+  overflow: hidden;
+}
+
+/* 动态网格背景 */
+.splash-grid-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+}
+
+.splash-grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(14, 165, 233, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(50px);
+  }
+}
+
+/* 扫描线效果 */
+.splash-scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #22d3ee, transparent);
+  box-shadow: 0 0 20px 2px rgba(34, 211, 238, 0.6);
+}
+
+/* 粒子网络 */
+.splash-particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 光晕装饰 */
+.splash-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+}
+
+.splash-glow-top {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: rgba(37, 99, 235, 0.2);
+}
+
+.splash-glow-bottom {
+  bottom: 0;
+  right: 25%;
+  width: 500px;
+  height: 500px;
+  background: rgba(8, 145, 178, 0.2);
+  filter: blur(100px);
+}
+
+/* 装饰线 */
+.splash-border-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #22d3ee, transparent);
+  z-index: 20;
+}
+
+.splash-border-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #22d3ee, transparent);
+  z-index: 20;
+}
+
+/* 主内容容器 */
+.splash-content {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  padding: 64px 32px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+}
+
+/* 六边形容器 */
+.splash-hexagon-container {
+  position: relative;
+  margin-bottom: 32px;
+  flex-shrink: 0;
+}
+
+/* 旋转环 */
+.splash-ring {
+  position: absolute;
+  inset: 0;
+  margin: -48px;
+}
+
+.splash-ring-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* 脉冲环 */
+.splash-pulse-ring {
+  position: absolute;
+  inset: 0;
+  margin: -32px;
+}
+
+.splash-pulse-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* 核心图标 */
+.splash-hexagon-core {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(8, 145, 178, 0.2));
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(34, 211, 238, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  box-shadow: 
+    0 0 60px rgba(34, 211, 238, 0.4),
+    inset 0 0 60px rgba(34, 211, 238, 0.1);
+}
+
+/* 角落装饰 */
+.splash-corner-mark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.splash-corner-h {
+  width: 24px;
+  height: 4px;
+  background: #22d3ee;
+}
+
+.splash-corner-v {
+  width: 4px;
+  height: 24px;
+  background: #22d3ee;
+}
+
+/* 标题区域 */
+.splash-title-area {
+  text-align: center;
+  margin-bottom: 32px;
+  flex-shrink: 0;
+}
+
+.splash-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  background: linear-gradient(90deg, #60a5fa, #22d3ee, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 40px rgba(34, 211, 238, 0.5);
+}
+
+.splash-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #22d3ee, transparent);
+  margin-bottom: 16px;
+}
+
+.splash-subtitle-en {
+  color: #67e8f9;
+  font-size: 1.25rem;
+  letter-spacing: 0.1em;
+}
+
+.splash-subtitle-tech {
+  color: rgba(96, 165, 250, 0.8);
+  font-size: 0.875rem;
+  margin-top: 8px;
+}
+
+/* 数据统计网格 */
+.splash-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-shrink: 0;
+  max-width: 56rem;
+  width: 100%;
+  padding: 0 16px;
+}
+
+.splash-stat-item-wrapper {
+  position: relative;
+}
+
+.splash-stat-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(8, 145, 178, 0.1));
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  border-radius: 8px;
+  padding: 12px;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+.splash-stat-card:hover {
+  border-color: rgba(34, 211, 238, 0.6);
+}
+
+.splash-stat-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.2), transparent);
+}
+
+.splash-stat-content {
+  position: relative;
+  z-index: 10;
+}
+
+.splash-stat-unit {
+  font-size: 0.75rem;
+  color: rgba(34, 211, 238, 0.6);
+  margin-bottom: 4px;
+  letter-spacing: 0.2em;
+}
+
+.splash-stat-value {
+  font-size: 1.5rem;
+  color: #67e8f9;
+  margin-bottom: 4px;
+  text-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
+}
+
+.splash-stat-label {
+  font-size: 0.75rem;
+  color: rgba(96, 165, 250, 0.8);
+}
+
+.splash-stat-corner-tr {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  border-top: 2px solid rgba(34, 211, 238, 0.4);
+  border-right: 2px solid rgba(34, 211, 238, 0.4);
+}
+
+.splash-stat-corner-bl {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border-bottom: 2px solid rgba(34, 211, 238, 0.4);
+  border-left: 2px solid rgba(34, 211, 238, 0.4);
+}
+
+/* 加载进度 */
+.splash-progress-container {
+  width: 384px;
+  max-width: 100%;
+  padding: 0 16px;
+  margin-bottom: 32px;
+  flex-shrink: 0;
+}
+
+.splash-progress-wrapper {
+  position: relative;
+}
+
+.splash-progress-bar-bg {
+  height: 8px;
+  background: rgba(31, 41, 55, 0.5);
+  border-radius: 9999px;
+  overflow: hidden;
+  border: 1px solid rgba(34, 211, 238, 0.2);
+}
+
+.splash-progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #22d3ee, #3b82f6);
+  position: relative;
+}
+
+.splash-progress-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+}
+
+.splash-progress-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.splash-progress-status {
+  color: #22d3ee;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.splash-progress-percent {
+  color: #67e8f9;
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 加载步骤 */
+.splash-loading-steps {
+  margin-top: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.splash-loading-step {
+  font-size: 0.75rem;
+  color: #4b5563;
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.splash-loading-step.active {
+  color: #22d3ee;
+}
+
+.splash-loading-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* 底部信息 */
+.splash-footer {
+  text-align: center;
+  flex-shrink: 0;
+  margin-top: auto;
+  position: relative;
+}
+
+.splash-skip-button {
+  position: absolute;
+  top: -40px;
+  right: 20px;
+  background: rgba(34, 211, 238, 0.1);
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  color: #22d3ee;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.3s;
+  backdrop-filter: blur(4px);
+}
+
+.splash-skip-button:hover {
+  background: rgba(34, 211, 238, 0.2);
+  border-color: #22d3ee;
+  transform: translateX(5px);
+}
+
+.splash-footer-title {
+  color: rgba(34, 211, 238, 0.6);
+  font-size: 0.75rem;
+  margin-bottom: 4px;
+  letter-spacing: 0.1em;
+}
+
+.splash-footer-tech {
+  color: #6b7280;
+  font-size: 0.75rem;
+}
+
+/* 响应式设计 */
+@media (min-width: 768px) {
+  .splash-title {
+    font-size: 3rem;
+  }
+
+  .splash-stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .splash-stat-value {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .splash-content {
+    padding: 40px 16px;
+  }
+
+  .splash-title {
+    font-size: 2rem;
+  }
+
+  .splash-subtitle-en {
+    font-size: 1rem;
+  }
+
+  .splash-hexagon-core {
+    width: 120px;
+    height: 120px;
+  }
+}
+
